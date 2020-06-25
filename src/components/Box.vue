@@ -1,9 +1,9 @@
 <template>
   <v-container class="grey lighten-5">
     <v-row v-for="rowIndex in 4" :key="rowIndex">
-      <v-col v-for="n in 4" :key="n" cols="3">
+      <v-col v-for="n in 4" :key="n" cols="12" md="3">
         <v-card
-          class="card pa-2"
+          class="card rounded-lg pa-4"
           outlined
           tile
           v-if="getBoxContent(getPosition(rowIndex, n))"
