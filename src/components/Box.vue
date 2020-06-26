@@ -37,26 +37,32 @@
         </v-col>
       </v-row>
     </v-container>
-    
+    <v-alert transition="slide-x-transition" v-model="showAlert" :dismissible="true" type="success">
+      Block component updated
+    </v-alert>
   </v-container>
 </template>
 
 <script>
 import draggable from "vuedraggable";
+import axios from "axios";
 
 export default {
   name: "Box",
-  props: ["boxContents", "editable"],
+  props: ["editable"],
   components: {
     draggable
   },
   data() {
     return {
-      localBoxContents: []
+      localBoxContents: [],
+      showAlert: false
     };
   },
-  mounted() {
-    this.localBoxContents = this.generateLocalBoxContents();
+  async mounted() {
+    let response = await axios.get(`${process.env.VUE_APP_API_BASE_URL}/blocks`);
+    console.log(response.data)
+    this.localBoxContents = response.data;
     console.log("API BASE URL: " + process.env.VUE_APP_API_BASE_URL)
   },
   methods: {
@@ -101,11 +107,14 @@ export default {
       ];
       this.sort();
     },
-    save: function() {
+    save: async function() {
       for (let i = 0; i < this.localBoxContents.length; i++) {
         this.localBoxContents[i].position = i + 1;
       }
       console.log(JSON.stringify(this.localBoxContents));
+      
+      await axios.put(`${process.env.VUE_APP_API_BASE_URL}/blocks`, this.localBoxContents);
+      this.showAlert = true;
     }
   }
 };
