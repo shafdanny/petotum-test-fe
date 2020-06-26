@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     this.localBoxContents = this.generateLocalBoxContents();
+    console.log("API BASE URL: " + process.env.VUE_APP_API_BASE_URL)
   },
   methods: {
     generateLocalBoxContents() {
