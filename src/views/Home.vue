@@ -15,11 +15,22 @@ export default {
   },
   data: () => ({
     boxContents: [
-      { position:2, text: "petotum.com" },
-      { position:4, text: "Build Trust" },
-      { position:7, text: "Pet care dashboard" },
-      { position:9, text: "Pet Parent Dashboard" },
-      { position:16, text: "Provide Transparency" },
+      { position: 1, text: "", active: false },
+      { position: 2, text: "petotum.com", active: true  },
+      { position: 3, text: "", active: false },
+      { position: 4, text: "Build Trust", active: true },
+      { position: 5, text: "", active: false },
+      { position: 6, text: "", active: false },
+      { position: 7, text: "Pet care dashboard", active: true },
+      { position: 8, text: "", active: false },
+      { position: 9, text: "Pet Parent Dashboard", active: true },
+      { position: 10, text: "", active: false },
+      { position: 11, text: "", active: false },
+      { position: 12, text: "", active: false },
+      { position: 13, text: "", active: false },
+      { position: 14, text: "", active: false },
+      { position: 15, text: "", active: false },
+      { position: 16, text: "Provide Transparency", active: true},
     ]
   }),
 }
