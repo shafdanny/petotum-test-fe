@@ -15,7 +15,7 @@
     <v-container class="grey lighten-5">
       <draggable class="row" :list="localBoxContents" v-if="editable" @end="log">
         <v-col v-for="boxContent in localBoxContents" :key="boxContent.position" cols="12" md="3">
-          <v-card class="card rounded-lg pa-4" outlined tile v-if="boxContent.active">
+          <v-card class="card rounded-lg pa-4" outlined tile hover v-if="boxContent.active">
             <v-row no-gutters>
               <v-col v-html="boxContent.text"></v-col>
               <v-col v-if="editable" cols="2">
@@ -32,7 +32,7 @@
       </draggable>
       <v-row class="row" v-else>
         <v-col v-for="boxContent in localBoxContents" :key="boxContent.position" cols="12" md="3">
-          <v-card class="card rounded-lg pa-4" outlined tile v-if="boxContent.active">
+          <v-card class="card rounded-lg pa-4" outlined tile hover v-if="boxContent.active">
             <v-row no-gutters>
               <v-col v-html="boxContent.text"></v-col>
             </v-row>
