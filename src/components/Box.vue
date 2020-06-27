@@ -2,7 +2,7 @@
   <v-container class="lighten-5">
     <div class="row" v-if="editable">
       <div class="col-2">
-        <v-btn small block color="normal" @click="originalOrder">To original order</v-btn>
+        <v-btn small block color="normal" @click="originalOrder">Reset to original</v-btn>
       </div>
       <div class="col-6"></div>
       <div class="col-2">
