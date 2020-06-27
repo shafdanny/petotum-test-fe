@@ -6,7 +6,7 @@
       </div>
       <div class="col-6"></div>
       <div class="col-2">
-        <v-btn small block color="error" @click="sort">Cancel</v-btn>
+        <v-btn small block color="error" @click="cancel">Cancel</v-btn>
       </div>
       <div class="col-2">
         <v-btn small block color="primary" @click="save">Save</v-btn>
@@ -34,7 +34,7 @@
         <v-col v-for="boxContent in localBoxContents" :key="boxContent.position" cols="12" md="3">
           <v-card class="card rounded-lg pa-4" outlined tile v-if="boxContent.active">
             <v-row no-gutters>
-              <v-col>{{ boxContent.text }}</v-col>
+              <v-col v-html="boxContent.text"></v-col>
             </v-row>
           </v-card>
           <v-card v-else class="card empty-card pa-4">Empty</v-card>
@@ -105,6 +105,14 @@ export default {
     },
     log: function() {
       console.log(JSON.stringify(this.localBoxContents));
+    },
+    cancel: async function() {
+      let response = await axios.get(
+        `${process.env.VUE_APP_API_BASE_URL}/blocks`
+      );
+      console.log(response.data);
+      this.localBoxContents = response.data;
+      this.sort()
     },
     sort: function() {
       this.localBoxContents = this.localBoxContents.sort(
