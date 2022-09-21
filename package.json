@@ -17,7 +17,7 @@
     "vue-trumbowyg": "^3.6.0",
     "vue2-editor": "^2.10.2",
     "vuedraggable": "^2.23.2",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
